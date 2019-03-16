@@ -10,6 +10,9 @@ An ESP32 webserver combined with UDP to control client devices
 a. Modify commands in the server such as C01H to be for example C01077 e.g. for 77%
 b. Modify the Client to receive the command and extract the sting after the Client address e.g. C01077 would be extracted like this:
     i. Client address = receivedcommand.subString(0,2); // Now contains 'C01'
+    
     ii. Command = receivedcommand.substring(3); // Now contains '077'
+    
     iii. int command_value = Command.toInt();
+    
     iv.  servo.write(command_value);
